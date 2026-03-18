@@ -1,5 +1,7 @@
 # product-wording-generator
 
+**[화면 미리보기](https://ejlee8796.github.io/product-wording-generator/)**
+
 이커머스 상품명을 분석하여 검색용 정규식 패턴(wording)을 자동 생성하고 DB에 저장/관리하는 어드민 웹 툴입니다.
 
 - 상품명을 브랜드명, 상품 키워드, 용량/수량으로 파싱하여 정규식 패턴 자동 생성

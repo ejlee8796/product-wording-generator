@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.company.wording.mapper.WordMapper">
+	<select id="getMapGoodsListZero" resultType="hashmap">
+	SELECT ID, GOODS_NAME FROM GOODS_LIST
+	WHERE STATUS = 0
+	ORDER BY ID ASC LIMIT #{pstartno}, 10000
+	</select>
+	
+	<insert id="insertMapMasterGoodsMappingWord" parameterType="hashmap">
+	INSERT INTO MASTER_GOODS_WORDING 
+	(MASTER_GOODS_ID, COUNTRY_ID, WORD1, WORD2, REG_DT, UPT_DT) 
+	VALUES
+	(#{masterGoodsId}, 1, #{word1}, #{word2}, NOW(), NOW())
+	</insert>
+	
+	<select id="cntMapGoodsListZero" resultType="int">
+	SELECT COUNT(ID) FROM GOODS_LIST
+	WHERE STATUS = 0
+	</select>
+	
+	<select id="cntMapGoodsList" resultType="int">
+	SELECT COUNT(ID) FROM GOODS_LIST
+	WHERE STATUS = 1
+	</select>
+	
+	<insert id="insertMapMasterGoods" parameterType="hashmap">
+	INSERT INTO MASTER_GOODS (ID, BRAND_ID, MASTER_CODE, GOODS_NAME, GOODS_TYPE, REFINE_TYPE, IMAGE_URL, REG_DT)
+	VALUES 
+	(#{id}, 0, #{masterCode}, #{goodsName}, 1, 0, #{imageUrl}, NOW())
+	</insert>
+	
+	<update id="updateMapGoods" parameterType="long" >
+	UPDATE GOODS_LIST SET STATUS = 1 
+	WHERE ID = #{id}
+	</update>
+	
+	<select id="getMapMasterGoods" resultType="int">
+	SELECT COUNT(*) FROM MASTER_GOODS
+	WHERE ID = #{id}
+	</select>
+	
+	<select id="getMapMasterGoodsMappingWord" resultType="int">
+	SELECT COUNT(ID) FROM MASTER_GOODS_WORDING
+	WHERE MASTER_GOODS_ID = #{id}
+	</select>
+
+	<update id="updateMapMasterGoodsWord" parameterType="hashmap" >
+	UPDATE MASTER_GOODS_WORDING SET
+	WORD1 = #{word1}, WORD2 = #{word2}, UPT_DT = NOW()
+	WHERE ID = #{id}
+	</update>
+	
+	<select id="getMapMasterGoodsWord" resultType="hashmap">
+	SELECT A.ID AS id, A.WORD1 AS word1, A.WORD2 AS word2, B.GOODS_NAME AS goodsName
+	FROM MASTER_GOODS_WORDING A
+	INNER JOIN MASTER_GOODS B ON A.MASTER_GOODS_ID = B.ID
+	INNER JOIN GOODS_LIST C ON C.ID = B.ID
+	WHERE C.STATUS = 1
+	ORDER BY ID ASC LIMIT #{pstartno}, 10000
+	</select>
+	 
+</mapper>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <title>정제어 수정</title>
+</head>
+<body>
+<h3 class="container">정제어 수정 리스트</h3>
+<div class="container" id="wordList">
+    <form id="allUpdateWording">
+        <div id="wordBody">
+
+            <!-- 상품 행 예시 1 -->
+            <div style="border-bottom: 1px solid #eee; padding: 10px 0;">
+                <p>
+                    <strong>1 : 브랜드A 수분크림 50ml</strong>
+                    <a class="btn btn-default btn-xs" style="margin-left:10px;">정제</a>
+                    <label style="margin-left:10px;">브랜드</label><input type="checkbox" checked />
+                    <label style="margin-left:6px;">상품명</label><input type="checkbox" checked />
+                </p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label><strong>WORD1 : </strong></label>
+                        <input type="text" value="브랜드A.*수분크림.*" class="form-control" />
+                    </div>
+                    <div class="col-sm-4">
+                        <label><strong>WORD2 : </strong></label>
+                        <input type="text" value="50" class="form-control" />
+                    </div>
+                    <div class="col-sm-2" style="padding-top:25px;">
+                        <input type="button" value="UPDATE" class="btn btn-info" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- 상품 행 예시 2 -->
+            <div style="border-bottom: 1px solid #eee; padding: 10px 0;">
+                <p>
+                    <strong>2 : 브랜드A 토너 200ml</strong>
+                    <a class="btn btn-default btn-xs" style="margin-left:10px;">정제</a>
+                    <label style="margin-left:10px;">브랜드</label><input type="checkbox" checked />
+                    <label style="margin-left:6px;">상품명</label><input type="checkbox" checked />
+                </p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label><strong>WORD1 : </strong></label>
+                        <input type="text" value="브랜드A.*토너.*" class="form-control" />
+                    </div>
+                    <div class="col-sm-4">
+                        <label><strong>WORD2 : </strong></label>
+                        <input type="text" value="200" class="form-control" />
+                    </div>
+                    <div class="col-sm-2" style="padding-top:25px;">
+                        <input type="button" value="UPDATE" class="btn btn-info" />
+                    </div>
+                </div>
+            </div>
+
+            <!-- 상품 행 예시 3 -->
+            <div style="border-bottom: 1px solid #eee; padding: 10px 0;">
+                <p>
+                    <strong>3 : 브랜드B 선크림 세트 2종</strong>
+                    <a class="btn btn-default btn-xs" style="margin-left:10px;">정제</a>
+                    <label style="margin-left:10px;">브랜드</label><input type="checkbox" checked />
+                    <label style="margin-left:6px;">상품명</label><input type="checkbox" checked />
+                </p>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <label><strong>WORD1 : </strong></label>
+                        <input type="text" value="브랜드B.*선크림.*" class="form-control" />
+                    </div>
+                    <div class="col-sm-4">
+                        <label><strong>WORD2 : </strong></label>
+                        <input type="text" value="2" class="form-control" />
+                    </div>
+                    <div class="col-sm-2" style="padding-top:25px;">
+                        <input type="button" value="UPDATE" class="btn btn-info" />
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div style="margin-top: 20px;">
+            <input type="submit" value="ALL + UPDATE" class="btn btn-warning" />
+        </div>
+    </form>
+
+    <!-- 페이징 -->
+    <div class="text-center" style="margin-top: 20px;">
+        <ul class="pagination">
+            <li class="active"><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">[다음]</a></li>
+        </ul>
+    </div>
+</div>
+
+<div class="container" style="margin-top:10px;">
+    <a href="index.html" class="btn btn-link">← 메인으로</a>
+</div>
+</body>
+</html>
